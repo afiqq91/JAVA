@@ -1,6 +1,9 @@
-public class ifelseDemo {
+import java.util.Scanner;
+public class IfElseDemoExcercise {
     public static void main(String[] args) {
-        int marks = 90;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter your marks: ");
+        int marks = scanner.nextInt();
         if (marks >= 90) {
             System.out.println("Grade A");
         } else if (marks >= 80) {
