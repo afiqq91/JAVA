@@ -15,7 +15,7 @@ public class LoginAttemptsExcercise {
             String password = scanner.nextLine();
 
             // Example correct credentials
-            if (username.equals("admin") && password.equals("1234")) {
+            if (username.equals("afiq") && password.equals("1234")) {
                 System.out.println("Login successful!");
                 break;
             } 
