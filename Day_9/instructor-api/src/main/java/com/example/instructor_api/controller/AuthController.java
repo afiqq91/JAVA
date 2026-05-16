@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.instructor_api.dto.LoginResponse;
+import com.example.instructor_api.dto.RegisterRequest;
 import com.example.instructor_api.model.User;
 import com.example.instructor_api.service.AuthService;
-import com.example.instructor_api.dto.RegisterRequest;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -21,5 +22,23 @@ public class AuthController {
     public User registerUser(@RequestBody RegisterRequest request) {
         return authService.register(request);
     }
+
+    @PostMapping("/login")
+public LoginResponse loginUser(
+        @RequestBody RegisterRequest request
+) {
+
+    if (
+        request.email.equals("admin@admin.com")
+        &&
+        request.password.equals("pwd12345")
+    ) {
+
+        return new LoginResponse("fake-jwt-token");
+    }
+
+    throw new RuntimeException("Invalid email or password");
+
+}
 
 }
